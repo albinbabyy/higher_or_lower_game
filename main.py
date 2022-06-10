@@ -7,7 +7,7 @@ def format_data(account):
     account_name = account["name"]
     account_descr = account["description"]
     account_country = account["country"]
-    return f"{account_name}, {account_descr}, {account_country}"
+    return f"{account_name},\n {account_descr}, {account_country}"
 
 
 def check_answer(guess, a_followers, b_followers):
@@ -17,7 +17,7 @@ def check_answer(guess, a_followers, b_followers):
     else:
         return guess == "b"
 
-
+score = 0
 # Creating a random account from the game data
 
 account_a = random.choice(data)
@@ -36,4 +36,11 @@ guess = input("Who has more followers \Type 'a' or 'b' : \n")
 a_followers_count = account_a["follower_count"]
 b_followers_count = account_b["follower_count"]
 # check if the user is correct
-is_correct = check_answer(guess , a_followers_count, b_followers_count)
+is_correct = check_answer(guess, a_followers_count, b_followers_count)
+
+# give feed back on their guess and score keeping
+if is_correct:
+    score +=1
+    print(f"you are right, current score ;{score}")
+else:
+    print(f"sorry, that#s wrong, final score:{score}")

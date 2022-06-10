@@ -21,10 +21,13 @@ score = 0
 
 # for game repeating
 game_should_continue = True
+
+account_b = random.choice(data)
+
 while game_should_continue:
 # Creating a random account from the game data
 
-    account_a = random.choice(data)
+    account_a = account_b
     account_b = random.choice(data)
     # in any case account a and b become equal to solve that,
     if account_a == account_b:
@@ -45,7 +48,7 @@ while game_should_continue:
     # give feed back on their guess and score keeping
     if is_correct:
         score +=1
-        print(f"you are right, current score ;{score}")
+        print(f"you are right, current score : {score}")
     else:
         game_should_continue = False
         print(f"sorry, thats wrong, final score:{score}")
